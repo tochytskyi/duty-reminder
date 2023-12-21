@@ -112,11 +112,7 @@ func getDutyId(srv *sheets.Service, dutyNickname string) (string, error) {
 }
 
 func initParams() {
-	err := godotenv.Load(".env")
-
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
+	_ = godotenv.Load(".env")
 
 	googleSheetsAPICredentials = os.Getenv("GOOGLE_SHEETS_API_CREDENTIALS")
 	if googleSheetsAPICredentials == "" {
